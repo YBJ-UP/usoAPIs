@@ -1,6 +1,11 @@
+import * as el from "../scripts/html_elements.js"
+
 const rootFotos = document.querySelector("main-root")
 
 function setPhotos(){
+    el.navPhotoButton.classList.add("selected")
+    el.navGIFButton.classList.remove("selected")
+    el.navStatusButton.classList.remove("selected")
     rootFotos.innerHTML= `
         <main>
 

@@ -1,6 +1,11 @@
+import * as el from "../scripts/html_elements.js"
+
 const rootGifs = document.querySelector("main-root")
 
 function setGifs(){
+    el.navPhotoButton.classList.remove("selected")
+    el.navGIFButton.classList.add("selected")
+    el.navStatusButton.classList.remove("selected")
     rootGifs.innerHTML= `
         <main>
 
