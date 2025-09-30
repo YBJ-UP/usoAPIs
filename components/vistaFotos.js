@@ -30,7 +30,7 @@ function setPhotos(){
 
                 <div class="cat-with-text">
                     <p>¡Haz que el gato diga algo!</p>
-                    <input type="text" name="" id="">
+                    <input type="text" name="" id="text">
                     <button type="button" id="buttonText">Generar imagen con texto</button>
                 </div>
             </section>
@@ -39,9 +39,17 @@ function setPhotos(){
     `
 }
 
-async function getIMG() {
+async function getIMG(input) {
+    img.src = "./media/102.jpg"
+    let URL
+    if (!input){
+        URL = "https://cataas.com/cat"
+    }
+    else{
+        URL = `https://cataas.com/cat/says/${input}`
+    }
     try {
-        const response = await fetch("https://cataas.com/cat")
+        const response = await fetch(URL)
         if (!response.ok){
             throw new Error(`Error al cargar la API: ${response.status}`)
         }else{
@@ -55,9 +63,19 @@ async function getIMG() {
 async function loadEvents(){
     console.log("sdcas")
     const img = document.getElementById("img")
+
     const photoButton = document.getElementById("buttonPhotos")
 
-    photoButton.addEventListener('click', getIMG)
+    photoButton.addEventListener('click', (event)=>{
+        getIMG("")
+    })
+
+    const txtInput = document.getElementById("text")
+    const txtButton = document.getElementById("buttonText")
+
+    txtButton.addEventListener('click', (event)=>{
+        getIMG(txtInput.value)
+    })
 }
 
 async function loadPagePhotos(){
