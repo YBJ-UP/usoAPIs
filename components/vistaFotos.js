@@ -60,8 +60,7 @@ async function getIMG(input) {
     }
 }
 
-async function loadEvents(){
-    console.log("sdcas")
+async function loadEvents(){ 
     const img = document.getElementById("img")
 
     const photoButton = document.getElementById("buttonPhotos")
