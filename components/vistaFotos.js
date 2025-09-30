@@ -23,7 +23,7 @@ function setPhotos(){
 
             <section class="buttons">
                 <div class="cat">
-                    <button type="button">Ver fotos de gatos</button>
+                    <button type="button" id="buttonPhotos">Ver fotos de gatos</button>
                 </div>
 
                 <p>ó</p>

@@ -23,7 +23,7 @@ function setGifs(){
 
             <section class="buttons">
                 <div class="cat">
-                    <button type="button">Ver gifs de gatos</button>
+                    <button type="button" id="buttonGifs">Ver gifs de gatos</button>
                 </div>
             </section>
 
