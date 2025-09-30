@@ -16,7 +16,7 @@ function setPhotos(){
 
             <section class="img-container">
                 <div id="frame">
-                    <img src="./media/placeholder.jfif" alt="" srcset="">
+                    <img src="./media/placeholder.jfif" alt="" srcset="" id="img">
                 </div>
 
             </section>
@@ -31,7 +31,7 @@ function setPhotos(){
                 <div class="cat-with-text">
                     <p>¡Haz que el gato diga algo!</p>
                     <input type="text" name="" id="">
-                    <button type="button">Generar imagen con texto</button>
+                    <button type="button" id="buttonText">Generar imagen con texto</button>
                 </div>
             </section>
 
@@ -39,4 +39,29 @@ function setPhotos(){
     `
 }
 
-export { setPhotos }
+async function getIMG() {
+    try {
+        const response = await fetch("https://cataas.com/cat")
+        if (!response.ok){
+            throw new Error(`Error al cargar la API: ${response.status}`)
+        }else{
+            img.src = response.url
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function loadEvents(){
+    console.log("sdcas")
+    const img = document.getElementById("img")
+    const photoButton = document.getElementById("buttonPhotos")
+
+    photoButton.addEventListener('click', getIMG)
+}
+
+async function loadPagePhotos(){
+    setPhotos()
+    loadEvents()
+}
+export { loadPagePhotos }
